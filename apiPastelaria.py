@@ -12,6 +12,10 @@ app.include_router(ClienteDAO.router)
 app.include_router(ProdutoDAO.router)
 
 
+# Cria, caso não existam, as tabelas de todos os modelos importados
+import db
+db.criaTabelas()
+
 if __name__ == "__main__":
     import uvicorn
     uvicorn.run('apiPastelaria:app', host=HOST, port=int(PORT), reload=RELOAD)
